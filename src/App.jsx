@@ -16,23 +16,17 @@ const App = () => {
         search: query,
       },
     });
-    console.log(data);
     return data;
   };
 
-  const { data, error, isLoading, refetch } = useQuery(["cardData"], () =>
+  const { data, error, isLoading } = useQuery(["cardData", query], () =>
     getCardData(query)
   );
-  useEffect(() => {
-    getCardData(query);
-  }, [query, refetch]);
-
-  if (isLoading) return <p>Loading...</p>;
 
   return (
     <>
       <SearchForm handleSubmit={handleSubmit} />
-      <Table data={data} />
+      <Table data={data} isLoading={isLoading} />
     </>
   );
 };
