@@ -2,14 +2,14 @@
 
 ## Required Packages
 
-This app uses Yarn as the package manager and vite as the build tool.
+This app uses Yarn as the package manager and Vite as the build tool.
 
 Install yarn
 ```
 npm install --global yarn
 ```
 
-Install vite
+Install Vite
 ```
 npm install vite
 ```
