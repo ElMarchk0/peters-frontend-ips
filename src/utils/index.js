@@ -16,10 +16,12 @@ const API_URL_ACTION_BY_CARD_DATA = "http://127.0.0.1:8000/api/card_actions";
 
 // Search for cards, members, actions, and labels.
 // If the query is an empty string then all items under each category is returned
-export const getCardData = async (query) => {
+export const getCardData = async (query, memberId, labelId) => {
   const { data } = await axios.get(API_URL_CARD_DATA, {
     params: {
       search: query,
+      members__member_id: memberId,
+      labels__label_id: labelId,
     },
   });
   return data;

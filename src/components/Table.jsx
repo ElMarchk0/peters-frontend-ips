@@ -1,5 +1,7 @@
 const Table = ({ data, isLoading }) => {
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <table>

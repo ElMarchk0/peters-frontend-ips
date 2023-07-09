@@ -5,14 +5,14 @@ import SearchForm from "./components/SearchForm";
 import Table from "./components/Table";
 // Custom Functions
 import { useSearchQuery } from "./hooks";
-import { getCardData } from "./utils";
+import { getCardData, getLabelData, getMemberData } from "./utils";
 
 const App = () => {
-  const { query, handleSubmit } = useSearchQuery();
+  const { query, member, label, handleSubmit } = useSearchQuery();
 
   // Search card data by keyword
-  const { data, isLoading } = useQuery(["cardData", query], () =>
-    getCardData(query)
+  const { data, isLoading } = useQuery(["cardData", query, member, label], () =>
+    getCardData(query, member, label)
   );
 
   return (
