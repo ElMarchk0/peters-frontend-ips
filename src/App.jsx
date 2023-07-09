@@ -1,25 +1,17 @@
-import axios from "axios";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+// Yarn Packages
+import { useQuery } from "@tanstack/react-query";
+// Components
 import SearchForm from "./components/SearchForm";
 import Table from "./components/Table";
+// Custom Functions
 import { useSearchQuery } from "./hooks";
+import { getCardData } from "./utils";
 
 const App = () => {
-  const API_URL = "http://127.0.0.1:8000/api/cards/";
   const { query, handleSubmit } = useSearchQuery();
 
-  const getCardData = async (query) => {
-    console.log(query);
-    const { data } = await axios.get(API_URL, {
-      params: {
-        search: query,
-      },
-    });
-    return data;
-  };
-
-  const { data, error, isLoading } = useQuery(["cardData", query], () =>
+  // Search card data by keyword
+  const { data, isLoading } = useQuery(["cardData", query], () =>
     getCardData(query)
   );
 
