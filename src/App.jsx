@@ -5,7 +5,7 @@ import SearchForm from "./components/SearchForm";
 import Table from "./components/Table";
 // Custom Functions
 import { useSearchQuery } from "./hooks";
-import { getCardData, getLabelData, getMemberData } from "./utils";
+import { getCardData } from "./utils";
 
 const App = () => {
   const { query, member, label, handleSubmit } = useSearchQuery();
