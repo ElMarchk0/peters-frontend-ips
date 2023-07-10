@@ -23,29 +23,35 @@ export const getCardData = async (query, memberId, labelId) => {
   return data;
 };
 
-export const getMemberData = async (query) => {
+export const getMemberData = async (query, memberId, cardId) => {
   const { data } = await axios.get(API_URL_MEMBER_DATA, {
     params: {
       search: query,
+      member_id: memberId,
+      cards__card_id: cardId,
     },
   });
   return data;
 };
 
-export const getLabelData = async (query) => {
+export const getLabelData = async (query, labelId, cardId) => {
   const { data } = await axios.get(API_URL_LABEL_DATA, {
     params: {
       search: query,
+      label_id: labelId,
+      cards__card_id: cardId,
     },
   });
 
   return data;
 };
 
-export const getActionData = async (query) => {
+export const getActionData = async (query, actionId, cardId) => {
   const { data } = await axios.get(API_URL_ACTION_DATA, {
     params: {
       search: query,
+      action_id: actionId,
+      cards__card_id: cardId,
     },
   });
 
