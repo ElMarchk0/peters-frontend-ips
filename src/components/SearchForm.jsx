@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCardData, getLabelData, getMemberData } from ".././utils";
+import { getLabelData, getMemberData } from ".././utils";
 
 const SearchForm = ({ handleSubmit }) => {
   // get member data
